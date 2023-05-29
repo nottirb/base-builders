@@ -15,6 +15,7 @@ jobs:
       matrix:
         fuzz-directory:
           - fuzz-rust
+          - fuzz-env
 
     steps:
       - name: Checkout Repo
