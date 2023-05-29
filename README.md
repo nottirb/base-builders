@@ -128,7 +128,7 @@ test = false
 doc = false
 ```
 
-injected lib.rs
+injected lib.rs:
 ```rs
 // Expose all modules
 pub mod lexer;
@@ -151,8 +151,8 @@ RUN mkdir sandbox \
     && mv Cargo.toml sandbox/Cargo.toml \
     && mv src sandbox/src \
     && mv fuzz sandbox/fuzz
-	&& sed -i 's/fn parse/pub fn parse/' ./sandbox/src/parser.rs \
-	&& cd ./sandbox/fuzz && cargo +nightly hfuzz build
+    && sed -i 's/fn parse/pub fn parse/' ./sandbox/src/parser.rs \
+    && cd ./sandbox/fuzz && cargo +nightly hfuzz build
 
 
 # Setup Fuzz-Env
