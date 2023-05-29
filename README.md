@@ -4,7 +4,7 @@ Docker images to use in fuzzing repositories. Images are built and published dai
 
 ## Rust
 
-Features: `cargo-fuzz`, `honggfuzz`
+Features: `cargo-fuzz`, `afl`, `honggfuzz`
 
 ```Dockerfile
 FROM ghcr.io/nottirb/fuzz-rust
