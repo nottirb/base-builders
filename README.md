@@ -82,12 +82,12 @@ For instance, let's say that the parser module (`src/parser.rs`) has a function 
 RUN sed -i 's/fn parse/pub fn parse/' ./src/parser.rs \
 ```
 
-#### A full example (json_parser):
+#### A full example (json-parser):
 
 Fuzz harness:
 ```rs
 use honggfuzz::fuzz;
-use parse_json::parser::parse;
+use json_parser::parser::parse;
 
 fn main() {
     loop {
@@ -150,7 +150,8 @@ WORKDIR /${project}
 RUN mkdir sandbox \
     && mv Cargo.toml sandbox/Cargo.toml \
     && mv src sandbox/src \
-    && mv fuzz sandbox/fuzz
+    && mv inject/lib.rs sandbox/src/lib.rs \
+    && mv fuzz sandbox/fuzz \
     && sed -i 's/fn parse/pub fn parse/' ./sandbox/src/parser.rs \
     && cd ./sandbox/fuzz && cargo +nightly hfuzz build
 
